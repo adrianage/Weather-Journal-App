@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,600;0,700;1,100;1,400;1,500&display=swap');
+
+body {
+    background: rgb(242, 192, 255);
+    background: linear-gradient(180deg, rgba(242, 192, 255, 1) 37%, rgba(123, 233, 255, 1) 100%);
+    font-family: 'Raleway', sans-serif;
+}
+
+#app {
+    display: grid;
+    grid-auto-rows: minmax(150px, auto);
+    /* grid-template-columns:  */
+    height: 100vh;
+    /* background: #eaf3fa; */
+    color: #444;
+    justify-content: center;
+    grid-gap: 1em;
+    font-size: 20px;
+
+}
+
+.holder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.entry {
+    background: #c25edbce;
+    border-radius: 10px;
+
+}
+
+#entryHolder {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    width: 60vw;
+    border: solid 1px #000;
+    color: #eaf3fa;
+    font-size: 18px;
+    font-family: 'Raleway', sans-serif;
+}
+
+#date {
+    display: flex;
+    order: 1;
+    height: 50px;
+    width: auto;
+    margin: 5px 0;
+    border: solid 1px #000;
+}
+
+#temp {
+    display: flex;
+    order: 2;
+    height: 50px;
+    width: auto;
+    margin: 5px 0;
+    border: solid 1px #000;
+}
+
+#content {
+    display: flex;
+    order: 3;
+    height: 50px;
+    width: auto;
+    margin: 5px 0;
+    border: solid 1px #000;
+}
+
+#feelings {}
+
+.title {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.headline {
+    font-size: 2em;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 40px;
+    z-index: 1;
+}
+
+.cloud {
+    margin-top: -90px;
+    z-index: -1;
+}
+
+.shadow {
+    filter: drop-shadow(0px 1px 2px rgba(137, 73, 143, 0.2));
+}
+
+/*  Basic Styling To Override Default For Basic HTML Elements */
+label {
+    display: block;
+    font-size: 27px;
+}
+
+input {
+    display: block;
+    height: 60px;
+    width: 320px;
+    background: #7aa2f7;
+    color: #eaf3fa;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+
+}
+
+button {
+    width: 250px;
+    height: 60px;
+    background: #9a7fda;
+    color: #f5e6f8ce;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0px 3px 2px #5a5ba0;
+    margin: 35px 0;
+}
+
+button:hover {
+    background: #999af7;
+    color: #f5e6f8ef;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+textarea {
+    background: #7aa2f7;
+    color: #eaf3fa;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+}
+
+/* Reset style for HTML element on active to have no border*/
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+/* Style for Placeholder Text*/
+::placeholder {
+    /* Firefox, Chrome, Opera */
+    color: rgba(234, 243, 250, 0.7);
+    /* padding: 10px 0 0px 10px; */
+}
+
+:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: #eaf3fa;
+}
+
+::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: #eaf3fa;
+}
