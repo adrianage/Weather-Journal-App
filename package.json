@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adrianage/Weather-App.git"
+    "url": "git+https://github.com/adrianage/Weather-Journal-App.git"
   },
   "author": "Adrian",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adrianage/Weather-App/issues"
+    "url": "https://github.com/adrianage/Weather-Journal-App/issues"
   },
-  "homepage": "https://github.com/adrianage/Weather-App#readme",
+  "homepage": "https://github.com/adrianage/Weather-Journal-App#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
