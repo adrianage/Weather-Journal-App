@@ -6,29 +6,32 @@ const button = document.getElementById('generate');
 
 button.addEventListener('click', async () => {
     button.textContent = 'Generating...';
+
+
+    /* Function to GET Web API Data*/
+    async function openWeatherData(apiKey) {
+        let zipCode = document.getElementById("zip").value;
+        fetch(baseLink + zipCode + ",us&appid=" + apiKey).then((response) => {
+            return response.json();
+        }).then((result) => {
+            postProjectData(result.main.temp);
+        });
+    }
+    /* Function to GET Project Data */
+    async function getProjectData() {
+        fetch(baseLink + 'projectData').then((response) => {
+            return response.json();
+        }).then((result) => {
+            document.getElementById("date").innerHTML = result.date;
+            document.getElementById("temp").innerHTML = JSON.stringify(result.temp);
+            document.getElementById("content").innerHTML = result.content;
+            document.getElementById("city").innerHTML = result.city;
+            document.getElementById("zip").value = "";
+            document.getElementById("feelings").value = "";
+        });
+    }
 });
 
-/* Function to GET Web API Data*/
-async function openWeatherData(apiKey) {
-    let zipCode = document.getElementById("zip").value;
-    fetch(baseLink + zipCode + ",us&appid=" + apiKey).then((response) => {
-        return response.json();
-    }).then((result) => {
-        postProjectData(result.main.temp);
-    });
-}
-/* Function to GET Project Data */
-async function getProjectData() {
-    fetch(baseLink + 'projectData').then((response) => {
-        return response.json();
-    }).then((result) => {
-        document.getElementById("date").innerHTML = result.date;
-        document.getElementById("temp").innerHTML = JSON.stringify(result.temp);
-        document.getElementById("content").innerHTML = result.content;
-        document.getElementById("zip").value = "";
-        document.getElementById("feelings").value = "";
-    });
-}
 
 /* Function to POST Project data */
 async function postProjectData(temp) {
@@ -55,3 +58,4 @@ async function postProjectData(temp) {
         getProjectData()
     });
 }
+getProjectData();
