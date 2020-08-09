@@ -6,8 +6,9 @@ const button = document.getElementById('generate');
 
 button.addEventListener('click', async () => {
     button.textContent = 'Generating...';
+});
 
-
+const openWeatherData =
     /* Function to GET Web API Data*/
     async function openWeatherData(apiKey) {
         let zipCode = document.getElementById("zip").value;
@@ -17,7 +18,9 @@ button.addEventListener('click', async () => {
             postProjectData(result.main.temp);
         });
     }
-    /* Function to GET Project Data */
+openWeatherData();
+/* Function to GET Project Data */
+const getProjectData =
     async function getProjectData() {
         fetch(baseLink + 'projectData').then((response) => {
             return response.json();
@@ -30,8 +33,8 @@ button.addEventListener('click', async () => {
             document.getElementById("feelings").value = "";
         });
     }
-});
 
+getProjectData();
 
 /* Function to POST Project data */
 async function postProjectData(temp) {
@@ -58,4 +61,3 @@ async function postProjectData(temp) {
         getProjectData()
     });
 }
-getProjectData();
