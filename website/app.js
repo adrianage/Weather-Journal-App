@@ -1,10 +1,9 @@
 /* Global Variables */
 const baseLink = 'http://api.openweathermap.org/data/2.5/weather?zip=';
-const apiKey = '6d535f8ac21002b728c1ab86702dacf1';
+const apiKey = 'f51b9f79275b985e491dbd6778df2515';
 
 const button = document.getElementById('generate');
 
-// const openWeatherData =
 /* Function to GET Web API Data*/
 async function openWeatherData(apiKey) {
     let zipCode = document.getElementById("zip").value;
@@ -15,8 +14,12 @@ async function openWeatherData(apiKey) {
     });
 }
 
+button.addEventListener('click', async () => {
+    button.textContent = 'Generating...';
+    openWeatherData();
+    projectData();
+});
 /* Function to GET Project Data */
-// const getProjectData =
 async function getProjectData() {
     fetch(baseLink + 'projectData').then((response) => {
         return response.json();
@@ -30,11 +33,6 @@ async function getProjectData() {
     });
 }
 
-button.addEventListener('click', async () => {
-    button.textContent = 'Generating...';
-    openWeatherData();
-    getProjectData();
-});
 
 /* Function to POST Project data */
 async function postProjectData(temp) {
