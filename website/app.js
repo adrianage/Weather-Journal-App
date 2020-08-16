@@ -3,6 +3,7 @@ const baseLink = 'http://api.openweathermap.org/data/2.5/weather?zip=';
 const apiKey = 'f51b9f79275b985e491dbd6778df2515';
 
 const button = document.getElementById('generate');
+const projectData = {};
 
 /* Function to GET Web API Data*/
 async function openWeatherData(apiKey) {
@@ -16,8 +17,8 @@ async function openWeatherData(apiKey) {
 
 button.addEventListener('click', async () => {
     button.textContent = 'Generating...';
-    openWeatherData();
-    projectData();
+    // openWeatherData();
+    // projectData();
 });
 /* Function to GET Project Data */
 async function getProjectData() {
