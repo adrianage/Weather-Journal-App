@@ -17,8 +17,6 @@ async function openWeatherData(apiKey) {
 
 button.addEventListener('click', async () => {
     button.textContent = 'Generating...';
-    // openWeatherData();
-    // projectData();
 });
 /* Function to GET Project Data */
 async function getProjectData() {
