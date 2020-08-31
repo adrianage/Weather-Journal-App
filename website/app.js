@@ -6,18 +6,22 @@ const button = document.getElementById('generate');
 const projectData = {};
 
 /* Function to GET Web API Data*/
-async function openWeatherData(apiKey) {
+async function openWeatherData() {
     let zipCode = document.getElementById("zip").value;
     fetch(baseLink + zipCode + ",us&appid=" + apiKey).then((response) => {
         return response.json();
     }).then((result) => {
+        console.log(result)
         postProjectData(result.main.temp);
     });
 }
 
-button.addEventListener('click', async () => {
-    button.textContent = 'Generating...';
-});
+// button.addEventListener('click', async () => {
+//     button.textContent = 'Generating...';
+// });
+
+document.getElementById('generate').addEventListener('click', openWeatherData);
+
 /* Function to GET Project Data */
 async function getProjectData() {
     fetch(baseLink + 'projectData').then((response) => {
