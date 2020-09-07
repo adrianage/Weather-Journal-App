@@ -6,6 +6,8 @@ body {
     font-family: 'Raleway', sans-serif;
 }
 
+/* Modified a lot of the styling to unify the app and keep it consistent  */
+
 #app {
     display: grid;
     grid-auto-rows: minmax(150px, auto);
