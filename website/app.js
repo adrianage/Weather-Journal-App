@@ -6,59 +6,29 @@ const button = document.getElementById('generate');
 const projectData = {};
 
 /* Function to GET Web API Data*/
-async function openWeatherData() {
+async function getWeatherData() {
     let zipCode = document.getElementById("zip").value;
-    fetch(baseLink + zipCode + ",us&appid=" + apiKey).then((response) => {
+    fetch(baseLink + zipCode + ",us&units=imperial&appid=" + apiKey).then((response) => {
         return response.json();
     }).then((result) => {
-        console.log(result)
-        postProjectData(result.main.temp);
-    });
-}
+        // Create a new date
+        let d = new Date();
+        let date = d.getMonth() + 1 + '/' + d.getDate() + '/' + d.getFullYear();
+        let content = document.getElementById("feelings").value;
 
-// button.addEventListener('click', async () => {
-//     button.textContent = 'Generating...';
-// });
-
-document.getElementById('generate').addEventListener('click', openWeatherData);
-
-/* Function to GET Project Data */
-async function getProjectData() {
-    fetch(baseLink + 'projectData').then((response) => {
-        return response.json();
-    }).then((result) => {
-        document.getElementById("date").innerHTML = result.date;
-        document.getElementById("temp").innerHTML = JSON.stringify(result.temp);
-        document.getElementById("content").innerHTML = result.content;
-        document.getElementById("city").innerHTML = result.city;
+        document.getElementById("date").innerHTML = date;
+        document.getElementById("temp").innerHTML = result.main.temp + ' °F';
+        document.getElementById("content").innerHTML = content;
+        document.getElementById("city").innerHTML = result.name;
         document.getElementById("zip").value = "";
         document.getElementById("feelings").value = "";
+        button.textContent = 'Generate';
     });
 }
 
+button.addEventListener('click', async () => {
+    button.textContent = 'Generating...';
+    getWeatherData();
+});
 
-/* Function to POST Project data */
-async function postProjectData(temp) {
-    // Create a new date
-    let d = new Date();
-    let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
-    let content = document.getElementById("feelings").value;
-    let data = {
-        date: newDate,
-        temp: temp,
-        content: content,
-    };
-    let options = {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-    };
-    fetch(openWeatherData + 'projectData', options).then((response) => {
-        return response.json();
-    }).then((result) => {
-        getProjectData()
-    });
-}
+console.log(getWeatherData);

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,600;0,700;1,100;1,400;1,500&display=swap');
 
 body {
-    background: rgb(242, 192, 255);
+    background: #f2c0ff;
     background: linear-gradient(180deg, rgba(242, 192, 255, 1) 37%, rgba(123, 233, 255, 1) 100%);
     font-family: 'Raleway', sans-serif;
 }
@@ -9,9 +9,7 @@ body {
 #app {
     display: grid;
     grid-auto-rows: minmax(150px, auto);
-    /* grid-template-columns:  */
-    height: 100vh;
-    /* background: #eaf3fa; */
+    height: 125vh;
     color: #444;
     justify-content: center;
     grid-gap: 1em;
@@ -24,58 +22,53 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 18px;
 }
 
 .entry {
     background: #c25edbce;
     border-radius: 10px;
+}
 
+.title {
+    color: #eaf3fa;
+    padding: 15px;
+    width: auto;
+    font-size: 20px;
+    font-weight: 400;
+    /* border: black 1px solid; */
 }
 
 #entryHolder {
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    width: 60vw;
-    border: solid 1px #000;
+    width: 50vw;
+    height: 30vh;
     color: #eaf3fa;
     font-size: 18px;
-    font-family: 'Raleway', sans-serif;
+    text-align: center;
+}
+
+#city {
+    margin: 10px;
 }
 
 #date {
-    display: flex;
-    order: 1;
-    height: 50px;
+    height: 30px;
     width: auto;
-    margin: 5px 0;
-    border: solid 1px #000;
+    text-align: center;
 }
 
 #temp {
-    display: flex;
-    order: 2;
-    height: 50px;
+    height: 30px;
     width: auto;
     margin: 5px 0;
-    border: solid 1px #000;
+    text-align: center;
 }
 
 #content {
-    display: flex;
-    order: 3;
-    height: 50px;
+    height: 30px;
     width: auto;
     margin: 5px 0;
-    border: solid 1px #000;
-}
-
-#feelings {}
-
-.title {
-    display: flex;
-    flex-direction: column;
-
+    text-align: center;
 }
 
 .headline {
@@ -111,7 +104,7 @@ input {
     font-size: 20px;
     border-radius: 10px;
     border: none;
-
+    text-align: center;
 }
 
 button {
@@ -142,6 +135,29 @@ textarea {
     border-radius: 10px;
     border: none;
     padding: 10px;
+    text-align: center;
+}
+
+/* Size for smaller screen */
+
+@media only screen and (max-width: 600px) {
+    #app {
+        display: grid;
+        grid-auto-rows: minmax(250px, 250px);
+    }
+
+    .holder #feelings {
+        width: 80vw;
+    }
+
+    #entryHolder {
+        width: 80vw;
+    }
+
+    .holder.entry {
+        height: 400px;
+        width: auto;
+    }
 }
 
 /* Reset style for HTML element on active to have no border*/
